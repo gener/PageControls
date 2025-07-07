@@ -31,7 +31,8 @@ import UIKit
     
     @IBInspectable open var pillSize: CGSize = CGSize(width: 20, height: 2.5) {
         didSet {
-            
+            layoutInactivePageIndicators(inactiveLayers)
+            layoutInactivePageIndicators([activeLayer])
         }
     }
     @IBInspectable open var activeTint: UIColor = UIColor.white {
