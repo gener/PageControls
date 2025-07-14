@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var filledPageControl: FilledPageControl!
     @IBOutlet weak var pillPageControl: PillPageControl!
     @IBOutlet weak var scrollingPageControl: ScrollingPageControl!
+    @IBOutlet weak var dynamicPillPageControl: DynamicPillPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // Update scroll view content size.
-        let contentSize = CGSize(width: scrollView.bounds.width * 3,
+        let contentSize = CGSize(width: scrollView.bounds.width * 5,
                                  height: scrollView.bounds.height)
         scrollView.contentSize = contentSize
     }
@@ -45,5 +46,6 @@ extension ViewController: UIScrollViewDelegate {
         filledPageControl.progress = progress
         pillPageControl.progress = progress
         scrollingPageControl.progress = progress
+        dynamicPillPageControl.progress = progress
     }
 }
