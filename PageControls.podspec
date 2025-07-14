@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PageControls'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'A selection of custom PageControls.'
 
 # This description is used to generate tags and improve search results.
@@ -50,6 +50,10 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
 
   s.subspec 'DynamicPillPageControl' do |dynamicPillPageControl|
       dynamicPillPageControl.source_files = 'PageControls/Classes/DynamicPillPageControl.*'
+  end
+
+  s.subspec 'VerticalDynamicPillPageControl' do |verticalDynamicPillPageControl|
+        verticalDynamicPillPageControl.source_files = 'PageControls/Classes/VerticalDynamicPillPageControl.*'
   end
 
 

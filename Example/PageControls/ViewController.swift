@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var filledPageControl: FilledPageControl!
     @IBOutlet weak var pillPageControl: PillPageControl!
     @IBOutlet weak var scrollingPageControl: ScrollingPageControl!
-    @IBOutlet weak var dynamicPillPageControl: DynamicPillPageControl!
+    @IBOutlet weak var dynamicPillPageControl: VerticalDynamicPillPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
