@@ -48,6 +48,11 @@ This is a selection of custom page controls to replace UIPageControl, inspired b
     snakePageControl.source_files = 'PageControls/Classes/SnakePageControl.*'
   end
 
+  s.subspec 'DynamicPillPageControl' do |dynamicPillPageControl|
+      dynamicPillPageControl.source_files = 'PageControls/Classes/DynamicPillPageControl.*'
+  end
+
+
   # s.resource_bundles = {
   #   'PageControls' => ['PageControls/Assets/*.png']
   # }
