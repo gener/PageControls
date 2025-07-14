@@ -4,11 +4,11 @@ import UIKit
 open class DynamicPillPageControl: UIView {
 
     // MARK: - Configuration
-    @IBInspectable open var dotSize: CGSize = CGSize(width: 4, height: 2.5) {
+    @IBInspectable open var pillSize: CGSize = CGSize(width: 4, height: 2.5) {
         didSet { updateLayout() }
     }
 
-    @IBInspectable open var activeDotSize: CGSize = CGSize(width: 5, height: 2.5) {
+    @IBInspectable open var activePillSize: CGSize = CGSize(width: 5, height: 2.5) {
         didSet { updateLayout() }
     }
 
@@ -90,7 +90,7 @@ open class DynamicPillPageControl: UIView {
         scrollView.addSubview(contentView)
 
         activeDotLayer.backgroundColor = activeColor.cgColor
-        activeDotLayer.cornerRadius = activeDotSize.height/2
+        activeDotLayer.cornerRadius = activePillSize.height/2
         contentView.layer.addSublayer(activeDotLayer)
     }
 
@@ -102,7 +102,7 @@ open class DynamicPillPageControl: UIView {
 
     private func updateLayout() {
         scrollView.frame = bounds
-        let contentWidth = CGFloat(numberOfPages) * (dotSize.width + spacing) - spacing
+        let contentWidth = CGFloat(numberOfPages) * (pillSize.width + spacing) - spacing
         contentView.frame = CGRect(x: 0, y: 0, width: contentWidth, height: bounds.height)
         scrollView.contentSize = contentView.bounds.size
 
@@ -118,7 +118,7 @@ open class DynamicPillPageControl: UIView {
         for _ in 0..<numberOfPages {
             let layer = CALayer()
             layer.backgroundColor = inactiveColor.cgColor
-            layer.cornerRadius = dotSize.height/2
+            layer.cornerRadius = pillSize.height/2
             contentView.layer.insertSublayer(layer, below: activeDotLayer)
             dotLayers.append(layer)
         }
@@ -129,10 +129,10 @@ open class DynamicPillPageControl: UIView {
     private func updateDotFrames() {
         for (index, layer) in dotLayers.enumerated() {
             layer.frame = CGRect(
-                x: CGFloat(index) * (dotSize.width + spacing),
-                y: bounds.midY - dotSize.height/2,
-                width: dotSize.width,
-                height: dotSize.height
+                x: CGFloat(index) * (pillSize.width + spacing),
+                y: bounds.midY - pillSize.height/2,
+                width: pillSize.width,
+                height: pillSize.height
             )
         }
     }
@@ -203,17 +203,17 @@ open class DynamicPillPageControl: UIView {
 
     private func frameForActiveDot(at index: Int) -> CGRect {
         let dotFrame = CGRect(
-            x: CGFloat(index) * (dotSize.width + spacing),
-            y: bounds.midY - activeDotSize.height/2,
-            width: dotSize.width,
-            height: dotSize.height
+            x: CGFloat(index) * (pillSize.width + spacing),
+            y: bounds.midY - activePillSize.height/2,
+            width: pillSize.width,
+            height: pillSize.height
         )
 
         return CGRect(
-            x: dotFrame.midX - activeDotSize.width/2,
-            y: dotFrame.midY - activeDotSize.height/2,
-            width: activeDotSize.width,
-            height: activeDotSize.height
+            x: dotFrame.midX - activePillSize.width/2,
+            y: dotFrame.midY - activePillSize.height/2,
+            width: activePillSize.width,
+            height: activePillSize.height
         )
     }
 
